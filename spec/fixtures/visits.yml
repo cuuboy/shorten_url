@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shortcut_id: 1
+  ip: MyString
+  request: MyText
+  referral: MyText
+
+two:
+  shortcut_id: 1
+  ip: MyString
+  request: MyText
+  referral: MyText

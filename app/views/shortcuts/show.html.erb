@@ -1,4 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <%= link_to shortcuts_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to edit_shortcut_path(@shortcut), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show shortcut</h1>
+</div>
 
-<%= link_to 'Edit', edit_shortcut_path(@shortcut) %> |
-<%= link_to 'Back', shortcuts_path %>
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @shortcut.name %></dd>
+
+  <dt>Note:</dt>
+  <dd><%= @shortcut.note %></dd>
+
+  <dt>Original url:</dt>
+  <dd><%= @shortcut.original_url %></dd>
+
+  <dt>Short url:</dt>
+  <dd><%= @shortcut.short_url %></dd>
+
+</dl>

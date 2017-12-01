@@ -1,5 +1,36 @@
-<h1>New Shortcut</h1>
+<%= form_for(@shortcut, html: { class: "form-horizontal", role: "form" }) do |f| %>
+  <% if @shortcut.errors.any? %>
+    <div class="alert alert-danger alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@shortcut.errors.count, "error") %> prohibited this shortcut from being saved:</h4>
 
-<%= render 'form', shortcut: @shortcut %>
+      <ul>
+      <% @shortcut.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Back', shortcuts_path %>
+  <div class="form-group">
+    <div class="col-sm-8">
+      <%= f.text_field :original_url, class: "form-control", placeholder: "http://www.example.exp" %>
+    </div>
+
+    <div class="col-sm-offset-1 col-sm-2">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.text_field :name, class: "form-control", placeholder: "Name (ex: ShortLink001)" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.text_area :note, class: "form-control", placeholder: "Note: Optional" %>
+    </div>
+  </div>
+<% end %>
+

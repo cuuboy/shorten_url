@@ -8,7 +8,11 @@
 
 <dl class="dl-horizontal">
   <dt>Your Shortcut link:</dt>
-  <dd><a id="shortcut-link" target="_blank"><%= @shortcut.short_url %></a></dd>
+  <dd>
+    <%= link_to @shorten_url, @shorten_url, target: "_blank" %>
+    <br />
+    <%= link_to "Try API", File.join(root_url, "api/v1/shortcuts", @shortcut.short_url), target: "_blank" %>
+  </dd>
 
   <dt>Name:</dt>
   <dd><%= @shortcut.name %></dd>
@@ -23,13 +27,6 @@
   <dd><%= @shortcut.short_url %></dd>
 
 </dl>
-
-<script type="text/javascript">
-  shorten_url = window.location.origin + "/goto/<%= @shortcut.short_url %>"
-  link = document.getElementById('shortcut-link')
-  link.href = shorten_url
-  link.innerHTML = shorten_url
-</script>
 
 <div class="table-responsive col-sm-12">
   <table class="table table-striped table-bordered table-hover">

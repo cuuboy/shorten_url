@@ -10,6 +10,7 @@ class ShortcutsController < ApplicationController
   def show
     @shortcut = Shortcut.find(params[:id])
     @visits = @shortcut.visits.all.order(created_at: :desc)
+    @shorten_url = File.join(root_url, "goto", @shortcut.short_url)
   end
 
   def create

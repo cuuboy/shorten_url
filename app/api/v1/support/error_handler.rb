@@ -17,20 +17,6 @@ module V1
       rescue_from ActiveRecord::RecordNotFound do |e|
         error_response(status: 404, message: e.message)
       end
-
-      rescue_from ActiveRecord::RecordInvalid do |e|
-        error_response(status: 422, message: e.message)
-      end
-
-      rescue_from :all do |e|
-        if Rails.env.test?
-          error_response(backtrace: e.backtrace[0..5], message: e.message, status: 500)
-        elsif Rails.env.development?
-          raise e
-        else
-          error_response(message: 'Internal server error', status: 500)
-        end
-      end
     end
   end
 end

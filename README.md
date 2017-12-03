@@ -52,15 +52,15 @@ Ideally we don't need to expose too much information to most of the users, this 
 
 Creators still can check the link status but there's nothing much they can do.
 
-Thus, I prefer user to use `goto/:short_url` instead of `shortcut/:id` to keep information hides behind people.
+Thus, I prefer user to use `goto/:short_url` instead of `shortcut/:id` to keep information hiding behind people.
 
 ## What Needs To Be Improved
 
 * The algorithm of shorten url, the current idea is simply using partial uuid and part of the original url's md5, not a good way but should be able to handle a starting service.
 * Test case for the API formatter: strangely it doesn't have test case for api endpoint, in my concept, tests for API have these important purpose:
-  1. Test the request format.
-  2. Test the response data format.
-  3. Test and expect the different status codes.
+  - Test the request format.
+  - Test the response data format.
+  - Test and expect the different status codes.
 
   With more and more user feedback, and this project can start to have proper API test cases.
 

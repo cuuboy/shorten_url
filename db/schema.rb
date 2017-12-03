@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171201102013) do
+ActiveRecord::Schema.define(version: 20171203021310) do
 
   create_table "shortcuts", force: :cascade do |t|
     t.string "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171201102013) do
     t.integer "shortcut_id"
     t.string "ip"
     t.text "request"
-    t.text "referral"
+    t.text "referrer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

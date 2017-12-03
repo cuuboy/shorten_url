@@ -1,4 +1,2 @@
-FactoryGirl.define do
-  factory :shortcut do
-  end
+FactoryGirl.define do\
 end

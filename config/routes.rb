@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'goto/:shorten_url', to: 'shortcuts#redirect', as: :redirect_to_origin
+  get 'goto/:short_url', to: 'shortcuts#redirect', as: :redirect_to_origin
 
   resources :visits, only: [:index, :show]
 end

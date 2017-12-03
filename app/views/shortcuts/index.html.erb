@@ -25,7 +25,7 @@
             <td><%= shortcut.name %></td>
             <td><%= shortcut.note %></td>
             <td><%= shortcut.original_url %></td>
-            <td><%= shortcut.short_url %></td>
+            <td><%= link_to shortcut.short_url, "/goto/#{shortcut.short_url}", target: '_blank' %></td>
             <td><%= link_to 'Show', shortcut %></td>
         <td><%= link_to 'Edit', edit_shortcut_path(shortcut) %></td>
         <td><%= link_to 'Destroy', shortcut, method: :delete, data: { confirm: 'Are you sure?' } %></td>

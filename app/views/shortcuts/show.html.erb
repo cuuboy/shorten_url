@@ -3,14 +3,13 @@
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_shortcut_path(@shortcut), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
-  <% end %>
   <h1>Show shortcut</h1>
 </div>
 
 <dl class="dl-horizontal">
+  <dt>Your Shortcut link:</dt>
+  <dd><a id="shortcut-link" target="_blank"><%= @shortcut.short_url %></a></dd>
+
   <dt>Name:</dt>
   <dd><%= @shortcut.name %></dd>
 
@@ -24,3 +23,38 @@
   <dd><%= @shortcut.short_url %></dd>
 
 </dl>
+
+<script type="text/javascript">
+  shorten_url = window.location.origin + "/goto/<%= @shortcut.short_url %>"
+  link = document.getElementById('shortcut-link')
+  link.href = shorten_url
+  link.innerHTML = shorten_url
+</script>
+
+<div class="table-responsive col-sm-12">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>IP</th>
+        <th>Visited At</th>
+        <th>User Agent</th>
+        <th>Path Info</th>
+        <th>Query String</th>
+        <th>Referer</th>
+        <th>Cookie</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @visits) do |visit| %>
+        <td><%= visit.ip %></td>
+        <td><%= visit.created_at %></td>
+        <td><%= visit.user_agent %></td>
+        <td><%= visit.path_info %></td>
+        <td><%= visit.query_string %></td>
+        <td><%= visit.referer %></td>
+        <td><%= visit.cookie %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

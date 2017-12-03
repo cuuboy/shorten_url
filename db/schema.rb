@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203021310) do
+ActiveRecord::Schema.define(version: 20171203043408) do
 
   create_table "shortcuts", force: :cascade do |t|
     t.string "name"
@@ -24,10 +24,13 @@ ActiveRecord::Schema.define(version: 20171203021310) do
   create_table "visits", force: :cascade do |t|
     t.integer "shortcut_id"
     t.string "ip"
-    t.text "request"
-    t.text "referrer"
+    t.text "referer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.string "cookie"
+    t.string "path_info"
+    t.string "query_string"
   end
 
 end

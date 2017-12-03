@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'shortcuts#new'
 
+  mount ApiBase => '/'
+
   resources :shortcuts do
     member do
       get :redirect

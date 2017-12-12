@@ -40,7 +40,6 @@ describe ShortcutsController, type: :controller do
 
       visit = Visit.last
       expect(visit.ip).to eq('192.168.0.1')
-      byebug
     end
   end
 
